@@ -61,15 +61,15 @@ Sum from 1 to 9 is 45
 ### 3. Working with GUI Desktop (noVNC)
 -In codespace go to ports tab <br>
 -Click on link noVNC Desktop (6080)
-![Codespace Build](https://github.com/satendramane/vsd-riscv2/blob/main/images/2.png)
+![Codespace Build](port.png)
 
 #### Click **`vnc_lite.html`**
-![Codespace Build](https://github.com/satendramane/vsd-riscv2/blob/main/images/3.png)
+![Codespace Build](images/direct.png)
 
 ### 4. Navigate to the Sample Programs
 Right-click anywhere on the desktop background <br>
 Select Open Terminal Here
-![Codespace Build](https://github.com/satendramane/vsd-riscv2/blob/main/images/4.png)
+![Codespace Build](images/linux.png)
 
 In the terminal, go to the workspace and then to the `samples` folder:
 
@@ -78,11 +78,11 @@ cd /workspaces/vsd-riscv2
 cd samples
 ls -ltr
 ```
-![Codespace Build](https://github.com/satendramane/vsd-riscv2/blob/main/images/5.png)
+![Codespace Build](images/sample.png)
 
 ### 5. Compile and Run Using Native GCC
 -Use the gcc compiler for C program
-![Codespace Build](https://github.com/satendramane/vsd-riscv2/blob/main/images/6.png)
+![Codespace Build](images/gcc.png)
 
 ### 6. Compile and Run Using RISC-V GCC and Spike
 ompile the same program for RISC-V and run it on the Spike ISA simulator:
@@ -91,7 +91,7 @@ ompile the same program for RISC-V and run it on the Spike ISA simulator:
 riscv64-unknown-elf-gcc -o sum1ton.o sum1ton.c
 spike pk sum1ton.o
 ```
-![Codespace Build](https://github.com/satendramane/vsd-riscv2/blob/main/images/7.png)
+![Codespace Build](images/spike.png)
 
 ### 6. Edit the C Program Using gedit (GUI Editor)
 
@@ -100,7 +100,7 @@ To edit the program using a graphical editor:
 ```bash
 gedit sum1ton.c &
 ```
-![Codespace Build](https://github.com/satendramane/vsd-riscv2/blob/main/images/8.png)
+![Codespace Build](images/gui.png)
 now we can chage the code as per our requirement like change the limit instead of 9 to 15
 ---
 ## Step 3: Run sum1ton.c Program
