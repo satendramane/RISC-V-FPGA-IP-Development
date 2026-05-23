@@ -113,4 +113,29 @@ cd vsdfpga_labs
 ```
 Follow the README instructions in vsdfpga_labs
 
-**Expected Output:**
+Install the following tools before proceeding:
+
+###### General dependencies
+
+```
+sudo apt-get install git vim autoconf automake autotools-dev curl libmpc-dev \
+libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool \
+patchutils bc zlib1g-dev libexpat1-dev gtkwave picocom -y
+```
+
+
+###### FPGA toolchain (Yosys/NextPNR/IceStorm)
+```
+sudo apt-get install yosys nextpnr-ice40 icestorm iverilog -y
+```
+###### RISC-V Toolchain (GCC 8.3.0)
+
+```
+cd ~
+mkdir -p riscv_toolchain && cd riscv_toolchain
+wget "https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz"
+tar -xvzf riscv64-unknown-elf-gcc-*.tar.gz
+echo 'export PATH=$HOME/riscv_toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14/bin:$PATH' >> ~/.bashrc
+source ~/.bashrc
+```
+
