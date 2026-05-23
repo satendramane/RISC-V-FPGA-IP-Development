@@ -56,7 +56,7 @@ Expected output:
 ```text
 Sum from 1 to 9 is 45
 ```
-![Codespace Build](images/sum1ton.png)
+![Codespace Build](images/sum.png)
 ---
 
 ## Step 3: Run sum1ton.c Program
