@@ -57,6 +57,11 @@ Expected output:
 Sum from 1 to 9 is 45
 ```
 ![Codespace Build](images/sum.png)
+
+### Working with GUI Desktop (noVNC)
+-In codespace go to ports tab 
+-Click on link noVNC Desktop (6080)
+![Codespace Build](vsd-veiscv2/images/1.png.)
 ---
 
 ## Step 3: Run sum1ton.c Program
