@@ -163,12 +163,11 @@ Clone both repositories locally: <br>
 vsd-riscv2 <br>
 vsdfpga_labs
 
-
 ```bash
 git clone https://github.com/vsdip/vsdfpga_labs.git
 cd vsdfpga_labs
 ```
-Follow the README instructions in vsdfpga_labs
+![Codespace Build](images/desk.png)
 
 ## Understanding Check
 
