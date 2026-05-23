@@ -138,7 +138,7 @@ tar -xvzf riscv64-unknown-elf-gcc-*.tar.gz
 echo 'export PATH=$HOME/riscv_toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14/bin:$PATH' >> ~/.bashrc
 source ~/.bashrc
 ```
-##### Building & Running
+### Building & Running
 
 Building the file
 
@@ -149,3 +149,11 @@ nano riscv_logo.c
 make riscv_logo.bram.hex
 ```
 ![Codespace Build](images/flash.png)
+
+Compiling and Running the file
+
+```
+riscv64-unknown-elf-gcc -o riscv_logo riscv_logo.c
+spike pk riscv_logo
+```
+![Codespace Build](images/main.png)
