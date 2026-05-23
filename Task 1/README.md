@@ -160,8 +160,8 @@ spike pk riscv_logo
 
 ## Step 4: Local Machine Preparation 
 Clone both repositories locally: <br>
-○	vsd-riscv2 <br>
-○	vsdfpga_labs
+vsd-riscv2 <br>
+vsdfpga_labs
 
 
 ```bash
