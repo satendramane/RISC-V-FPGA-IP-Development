@@ -17,11 +17,13 @@
 ```bash
 https://github.com/vsdip/vsd-riscv2
 ```
-Forked the vsd-riscv2 repository
+-Forked the vsd-riscv2 repository
+-Click on the green Code Button
+-Make new Codespace (first time may take 10-15 min.)
 
 ---
 
-## Step 2: Clone vsd-riscv2 Repository
+## Step 2: Verify RISC-V Reference Flow 
 
 ```bash
 cd /home/vsduser
