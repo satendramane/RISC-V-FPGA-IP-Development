@@ -138,4 +138,14 @@ tar -xvzf riscv64-unknown-elf-gcc-*.tar.gz
 echo 'export PATH=$HOME/riscv_toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14/bin:$PATH' >> ~/.bashrc
 source ~/.bashrc
 ```
+##### Building & Running
 
+Building the file
+
+```
+git clone https://github.com/vsdip/vsdfpga_labs.git
+cd vsdfpga_labs/basicRISCV/Firmware
+nano riscv_logo.c
+make riscv_logo.bram.hex
+```
+![Codespace Build](images/flash.png)
