@@ -61,10 +61,10 @@ Sum from 1 to 9 is 45
 ### 3. Working with GUI Desktop (noVNC)
 -In codespace go to ports tab 
 -Click on link noVNC Desktop (6080)
-![Codespace Build](https://github.com/satendramane/vsd-riscv2/blob/main/images/1.png)
+![Codespace Build](https://github.com/satendramane/vsd-riscv2/blob/main/images/2.png)
 
 #### Click **`vnc_lite.html`**
-![Codespace Build](https://github.com/satendramane/vsd-riscv2/blob/main/images/2.png)
+![Codespace Build](https://github.com/satendramane/vsd-riscv2/blob/main/images/3.png)
 
 ### 4. Open a Terminal Inside the Desktop
 ![Codespace Build](https://github.com/satendramane/vsd-riscv2/blob/main/images/4.png)
