@@ -56,12 +56,12 @@ Expected output:
 ```text
 Sum from 1 to 9 is 45
 ```
-![Spike Output](https://github.com/satendramane/vsd-riscv2/blob/main/images/1.png)
+![Spike Output](images/sum.png)
 
 ### Working with GUI Desktop (noVNC)
 -In codespace go to ports tab 
 -Click on link noVNC Desktop (6080)
-![Codespace Build](vsd-veiscv2/images/1.png.)
+![Codespace Build](https://github.com/satendramane/vsd-riscv2/blob/main/images/1.png)
 ---
 
 ## Step 3: Run sum1ton.c Program
