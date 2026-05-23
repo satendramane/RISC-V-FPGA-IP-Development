@@ -25,7 +25,7 @@ https://github.com/vsdip/vsd-riscv2
 ---
 
 ## Step 2: Verify RISC-V Reference Flow 
-### Verify the Setup
+### 1 Verify the Setup
 #### Inside the vsd-riscv2 Codespace:(Follow the README instructions)
 
 In Terminal
@@ -35,6 +35,27 @@ spike --version #If not working then use: spike --help
 iverilog -V
 ```
 This will give version information for each tool.
+
+### 2 Run Your First Program
+Go to the samples folder
+```bash
+workspaces/vsd-riscv2/samples
+```
+Compile the program:
+
+   ```bash
+   riscv64-unknown-elf-gcc -o sum1ton.o sum1ton.c
+   ```
+Run it with Spike:
+
+   ```bash
+   spike pk sum1ton.o
+   ```
+Expected output:
+
+```text
+Sum from 1 to 9 is 45
+```
 
 ---
 
