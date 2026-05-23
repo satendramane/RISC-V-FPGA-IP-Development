@@ -7,9 +7,8 @@
 - Prepare for upcoming FPGA and IP development work
 
 ## Environment Used
-- Oracle VirtualBox with VSDSquadron FPGA Mini VDI
-- OS: Xubuntu 64-bit
-- Local machine (not GitHub Codespace)
+- GitHub Codespace
+- Oracle VirtualBox
 
 ---
 
