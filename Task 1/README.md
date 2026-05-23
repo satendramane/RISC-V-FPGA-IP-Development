@@ -56,7 +56,7 @@ Expected output:
 ```text
 Sum from 1 to 9 is 45
 ```
-![Codespace Build](images/sum.png)
+![Spike Output](https://github.com/satendramane/vsd-riscv2/blob/main/images/1.png)
 
 ### Working with GUI Desktop (noVNC)
 -In codespace go to ports tab 
