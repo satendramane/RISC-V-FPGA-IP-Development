@@ -169,6 +169,8 @@ cd vsdfpga_labs
 ```
 ![Codespace Build](images/desk.png)
 
+![Codespace Build](images/done.png)
+---
 ## Understanding Check
 
 ### Q1. Where is the RISC-V program located in the vsd-riscv2 repository?
