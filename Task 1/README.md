@@ -59,7 +59,7 @@ Sum from 1 to 9 is 45
 ![Spike Output](images/sum.png)
 
 ### 3. Working with GUI Desktop (noVNC)
--In codespace go to ports tab 
+-In codespace go to ports tab <br>
 -Click on link noVNC Desktop (6080)
 ![Codespace Build](https://github.com/satendramane/vsd-riscv2/blob/main/images/2.png)
 
