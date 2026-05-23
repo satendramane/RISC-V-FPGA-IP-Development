@@ -31,7 +31,7 @@ https://github.com/vsdip/vsd-riscv2
 In Terminal
 ```bash
 riscv64-unknown-elf-gcc --version
-spike --version
+spike --version #If not working then use: spike --help
 iverilog -V
 ```
 This will give version information for each tool.
