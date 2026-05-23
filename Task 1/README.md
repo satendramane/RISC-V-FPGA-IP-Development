@@ -39,7 +39,7 @@ This will give version information for each tool.
 ### 2 Run Your First Program
 Go to the samples folder
 ```bash
-workspaces/vsd-riscv2/samples
+cd workspaces/vsd-riscv2/samples
 ```
 Compile the program:
 
