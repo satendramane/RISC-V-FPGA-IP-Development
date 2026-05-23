@@ -169,3 +169,34 @@ cd vsdfpga_labs
 ```
 ![Codespace Build](images/desk.png)
 
+## Understanding Check
+
+### Q1. Where is the RISC-V program located in the vsd-riscv2 repository?
+The specific file is:
+```bash
+workspaces/vsd-riscv2/samples/sum1ton.c
+```
+
+#### Q2. How is the program compiled and loaded into memory?
+
+The program is compiled using the RISC-V toolchain command:
+
+```
+riscv64-unknown-elf-gcc -o sum1ton.o sum1ton.c
+```
+This makes a RISC-V executable (ELF format) file.
+Then it is loaded into memory using spike with this command:
+
+```
+spike pk sum1ton.o
+```
+
+This makes pk (proxy kernel) load our ELF file and set it up into memory. Then it executes it
+
+#### Q3. How does the RISC-V core access memory and memory-mapped IO?
+
+The RISC-V core accesses both memory and memory-mapped IO using load and store instructions over a common system bus. Specific address ranges are assigned to hardware devices, so when the core reads or writes to those addresses, it communicates with peripherals as if they were normal memory locations.
+
+#### Q4. Where would a new FPGA IP block logically integrate in this system?
+
+A new FPGA IP block would connect to the system bus and be mapped to a unique address range within the memory map. This allows the RISC-V core to interact with the IP block through standard memory-mapped read and write operations, just like other peripherals.
