@@ -100,7 +100,7 @@ To edit the program using a graphical editor:
 ```bash
 gedit sum1ton.c &
 ```
-![Codespace Build](images/gui.png)
+![Codespace Build](images/GUI.png)
 now we can chage the code as per our requirement like change the limit instead of 9 to 15
 ---
 ## Step 3: Run sum1ton.c Program
