@@ -66,10 +66,43 @@ Sum from 1 to 9 is 45
 #### Click **`vnc_lite.html`**
 ![Codespace Build](https://github.com/satendramane/vsd-riscv2/blob/main/images/3.png)
 
-### 4. Open a Terminal Inside the Desktop
+### 4. Navigate to the Sample Programs
+Right-click anywhere on the desktop background <br>
+Select Open Terminal Here
 ![Codespace Build](https://github.com/satendramane/vsd-riscv2/blob/main/images/4.png)
----
 
+In the terminal, go to the workspace and then to the `samples` folder:
+
+```bash
+cd /workspaces/vsd-riscv2
+cd samples
+ls -ltr
+```
+![Codespace Build](https://github.com/satendramane/vsd-riscv2/blob/main/images/5.png)
+
+### 5. Compile and Run Using Native GCC
+-Use the gcc compiler for C program
+![Codespace Build](https://github.com/satendramane/vsd-riscv2/blob/main/images/6.png)
+
+### 6. Compile and Run Using RISC-V GCC and Spike
+ompile the same program for RISC-V and run it on the Spike ISA simulator:
+
+```bash
+riscv64-unknown-elf-gcc -o sum1ton.o sum1ton.c
+spike pk sum1ton.o
+```
+![Codespace Build](https://github.com/satendramane/vsd-riscv2/blob/main/images/7.png)
+
+### 6. Edit the C Program Using gedit (GUI Editor)
+
+To edit the program using a graphical editor:
+
+```bash
+gedit sum1ton.c &
+```
+![Codespace Build](https://github.com/satendramane/vsd-riscv2/blob/main/images/8.png)
+now we can chage the code as per our requirement like change the limit instead of 9 to 15
+---
 ## Step 3: Run sum1ton.c Program
 
 ```bash
