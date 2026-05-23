@@ -25,12 +25,16 @@ https://github.com/vsdip/vsd-riscv2
 ---
 
 ## Step 2: Verify RISC-V Reference Flow 
+### Verify the Setup
+#### Inside the vsd-riscv2 Codespace:(Follow the README instructions)
 
+In Terminal
 ```bash
-cd /home/vsduser
-git clone https://github.com/YOUR_USERNAME/vsd-riscv2.git
-cd vsd-riscv2/samples
+riscv64-unknown-elf-gcc --version
+spike --version
+iverilog -V
 ```
+This will give version information for each tool.
 
 ---
 
