@@ -12,14 +12,12 @@
 
 ---
 
-## Step 1: Install Dependencies
-
+## Step 1: GitHub Codespace Setup
+Repository Used
 ```bash
-sudo apt-get update
-sudo apt-get install git vim autoconf automake curl libmpc-dev \
-libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo \
-gperf libtool patchutils bc zlib1g-dev libexpat1-dev gtkwave picocom -y
+https://github.com/vsdip/vsd-riscv2
 ```
+Forked the vsd-riscv2 repository
 
 ---
 
