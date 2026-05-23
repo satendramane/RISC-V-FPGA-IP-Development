@@ -20,6 +20,7 @@ https://github.com/vsdip/vsd-riscv2
 -Forked the vsd-riscv2 repository
 -Click on the green Code Button
 -Make new Codespace (first time may take 10-15 min.)
+![Codespace Build](images/Codespace.png)
 
 ---
 
