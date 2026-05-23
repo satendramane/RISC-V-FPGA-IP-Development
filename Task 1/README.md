@@ -25,7 +25,7 @@ https://github.com/vsdip/vsd-riscv2
 ---
 
 ## Step 2: Verify RISC-V Reference Flow 
-### 1 Verify the Setup
+### 1. Verify the Setup
 #### Inside the vsd-riscv2 Codespace:(Follow the README instructions)
 
 In Terminal
@@ -36,7 +36,7 @@ iverilog -V
 ```
 This will give version information for each tool.
 
-### 2 Run Your First Program
+### 2. Run Your First Program
 Go to the samples folder
 ```bash
 cd workspaces/vsd-riscv2/samples
@@ -58,10 +58,16 @@ Sum from 1 to 9 is 45
 ```
 ![Spike Output](images/sum.png)
 
-### Working with GUI Desktop (noVNC)
+### 3. Working with GUI Desktop (noVNC)
 -In codespace go to ports tab 
 -Click on link noVNC Desktop (6080)
 ![Codespace Build](https://github.com/satendramane/vsd-riscv2/blob/main/images/1.png)
+
+#### Click **`vnc_lite.html`**
+![Codespace Build](https://github.com/satendramane/vsd-riscv2/blob/main/images/2.png)
+
+### 4. Open a Terminal Inside the Desktop
+![Codespace Build](https://github.com/satendramane/vsd-riscv2/blob/main/images/4.png)
 ---
 
 ## Step 3: Run sum1ton.c Program
