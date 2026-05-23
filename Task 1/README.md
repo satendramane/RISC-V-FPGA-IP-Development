@@ -101,6 +101,7 @@ To edit the program using a graphical editor:
 gedit sum1ton.c &
 ```
 ![Codespace Build](images/GUI.png)
+
 now we can chage the code as per our requirement like change the limit instead of 9 to 15
 ---
 ## Step 3: Clone and Run VSDFPGA Labs 
