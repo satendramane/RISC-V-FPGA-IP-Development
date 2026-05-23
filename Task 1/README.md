@@ -61,7 +61,7 @@ Sum from 1 to 9 is 45
 ### 3. Working with GUI Desktop (noVNC)
 -In codespace go to ports tab <br>
 -Click on link noVNC Desktop (6080)
-![Codespace Build](image/port.png)
+![Codespace Build](images/port.png)
 
 #### Click **`vnc_lite.html`**
 ![Codespace Build](images/derect.png)
