@@ -104,10 +104,12 @@ gedit sum1ton.c &
 now we can chage the code as per our requirement like change the limit instead of 9 to 15
 ---
 ## Step 3: Clone and Run VSDFPGA Labs 
+clone the FPGA labs repository inside the same Codespace:
 
 ```bash
-gcc -o sum1ton sum1ton.c
-./sum1ton
+git clone https://github.com/vsdip/vsdfpga_labs.git
+cd vsdfpga_labs
 ```
+Follow the README instructions in vsdfpga_labs
 
 **Expected Output:**
