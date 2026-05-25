@@ -68,8 +68,9 @@ In codespace go to ports tab <br>
 ![Codespace Build](images/derect.png)
 
 ### 4. Navigate to the Sample Programs
-- Right-click anywhere on the desktop background <br>
+- Right-click anywhere on the desktop background
 - Select Open Terminal Here
+  
 ![Codespace Build](images/linux.png)
 
 - In the terminal, go to the workspace and then to the `samples` folder:
