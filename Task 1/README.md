@@ -20,13 +20,14 @@ https://github.com/vsdip/vsd-riscv2
 - Forked the vsd-riscv2 repository <br>
 - Click on the green Code Button <br>
 - Make new Codespace (first time may take 10-15 min.)
+- 
 ![Codespace Build](images/Codespace.png)
 
 ---
 
 ## Step 2: Verify RISC-V Reference Flow 
 ### 1. Verify the Setup
-#### Inside the vsd-riscv2 Codespace:(Follow the README instructions)
+#### Inside the vsd-riscv2 Codespace: (Follow the README instructions)
 
 In Terminal
 ```bash
@@ -59,19 +60,19 @@ Sum from 1 to 9 is 45
 ![Spike Output](images/sum.png)
 
 ### 3. Working with GUI Desktop (noVNC)
--In codespace go to ports tab <br>
--Click on link noVNC Desktop (6080)
+In codespace go to ports tab <br>
+- Click on link noVNC Desktop (6080)
 ![Codespace Build](images/port.png)
 
-#### Click **`vnc_lite.html`**
+#### - Click **`vnc_lite.html`**
 ![Codespace Build](images/derect.png)
 
 ### 4. Navigate to the Sample Programs
-Right-click anywhere on the desktop background <br>
-Select Open Terminal Here
+- Right-click anywhere on the desktop background <br>
+- Select Open Terminal Here
 ![Codespace Build](images/linux.png)
 
-In the terminal, go to the workspace and then to the `samples` folder:
+- In the terminal, go to the workspace and then to the `samples` folder:
 
 ```bash
 cd /workspaces/vsd-riscv2
@@ -81,11 +82,11 @@ ls -ltr
 ![Codespace Build](images/sample.png)
 
 ### 5. Compile and Run Using Native GCC
--Use the gcc compiler for C program
+- Use the gcc compiler for C program
 ![Codespace Build](images/gcc.png)
 
 ### 6. Compile and Run Using RISC-V GCC and Spike
-ompile the same program for RISC-V and run it on the Spike ISA simulator:
+Compile the same program for RISC-V and run it on the Spike ISA simulator:
 
 ```bash
 riscv64-unknown-elf-gcc -o sum1ton.o sum1ton.c
@@ -105,15 +106,14 @@ gedit sum1ton.c &
 #### Now, we can modify the code according to our requirements, such as changing the limit from 9 to 15.
 ---
 ## Step 3: Clone and Run VSDFPGA Labs 
-clone the FPGA labs repository inside the same Codespace:
+- clone the FPGA labs repository inside the same Codespace:
 
 ```bash
 git clone https://github.com/vsdip/vsdfpga_labs.git
 cd vsdfpga_labs
 ```
-Follow the README instructions in vsdfpga_labs
-
-Install the following tools before proceeding:
+- Follow the README instructions in vsdfpga_labs
+- Install the following tools before proceeding:
 
 ###### General dependencies
 
@@ -140,7 +140,7 @@ source ~/.bashrc
 ```
 ### Building & Running
 
-Building the file
+###### Building the file
 
 ```
 git clone https://github.com/vsdip/vsdfpga_labs.git
