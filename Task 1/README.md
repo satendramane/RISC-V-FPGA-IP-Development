@@ -102,7 +102,7 @@ gedit sum1ton.c &
 ```
 ![Codespace Build](images/GUI.png)
 
-Now, we can modify the code according to our requirements, such as changing the limit from 9 to 15.
+##### Now, we can modify the code according to our requirements, such as changing the limit from 9 to 15.
 ---
 ## Step 3: Clone and Run VSDFPGA Labs 
 clone the FPGA labs repository inside the same Codespace:
