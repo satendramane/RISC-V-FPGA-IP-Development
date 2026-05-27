@@ -171,6 +171,7 @@ cd RTL
 iverilog -o sim_gpio -DBENCH riscv.v gpio_out.v ice40_primitives.v
 vvp sim_gpio
 ```
+![Codespace Build](images/Result 2.png)
 
 ### Simulation Results
 | Test | Value Written | Readback | Result |
