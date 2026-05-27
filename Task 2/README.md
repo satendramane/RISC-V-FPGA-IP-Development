@@ -136,6 +136,12 @@ wire [31:0] IO_rdata =
 
 ## Step 4: Firmware & Simulation
 
+Running test_gpio
+
+```bash
+vvp test_gpio
+```
+
 ![Codespace Build](images/Result1.png)
 
 ### gpio_test.c
