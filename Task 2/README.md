@@ -1,205 +1,211 @@
 # Task-2: Design & Integrate Your First Memory-Mapped IP
 
 ## Objective
-- Design a simple memory-mapped GPIO IP
-- Integrate it into the existing RISC-V SoC
-- Validate through simulation
-- Optional: Validate on FPGA hardware
-
-## Environment Used
-- GitHub Codespace
-- Oracle VirtualBox
+Design a 32-bit memory-mapped GPIO Output IP and integrate it into the FemtoRV32 RISC-V SoC. The CPU writes any 32-bit value to the GPIO register via a memory address and reads it back — validated through simulation.
 
 ---
 
-## Step 1: GitHub Codespace Setup
-### Repository Used
-```bash
-https://github.com/vsdip/vsd-riscv2
+## Repository Structure
 ```
-- Forked the vsd-riscv2 repository <br>
-- Click on the green Code Button <br>
-- Make new Codespace (first time may take 10-15 min.)
-  
-![Codespace Build](images/Codespace.png)
+├── RTL/
+│   ├── gpio_out.v            # New GPIO IP module (created)
+│   ├── riscv.v               # SoC top-level (modified to add GPIO)
+│   └── ice40_primitives.v    # Simulation stubs for iCE40 primitives
+├── Firmware/
+│   └── gpio_test.c           # C test program for GPIO validation
+└── README.md
+```
 
 ---
 
-## Step 2: Verify RISC-V Reference Flow 
-### 1. Verify the Setup
-#### Inside the vsd-riscv2 Codespace: (Follow the README instructions)
+## Address Map
 
-In Terminal
-```bash
-riscv64-unknown-elf-gcc --version
-spike --version #If not working then use: spike --help
-iverilog -V
-```
-This will give version information for each tool.
+| Bit | Peripheral   | Byte Address | Operation    |
+|-----|-------------|--------------|--------------|
+| 0   | LEDs        | 0x400000     | Write only   |
+| 1   | UART data   | 0x400004     | Write        |
+| 2   | UART status | 0x400008     | Read         |
+| **3** | **GPIO**  | **0x40000C** | **Read/Write** |
 
-### 2. Run Your First Program
-Go to the samples folder
-```bash
-cd workspaces/vsd-riscv2/samples
-```
-Compile the program:
+> Address decoding: `mem_addr[22] = 1` → IO space · `mem_wordaddr[3] = 1` → GPIO selected
 
-   ```bash
-   riscv64-unknown-elf-gcc -o sum1ton.o sum1ton.c
-   ```
-Run it with Spike:
-
-   ```bash
-   spike pk sum1ton.o
-   ```
-Expected output:
-
-```text
-Sum from 1 to 9 is 45
-```
-![Spike Output](images/sum.png)
-
-### 3. Working with GUI Desktop (noVNC)
-In codespace go to ports tab <br>
-- Click on link noVNC Desktop (6080)
-![Codespace Build](images/port.png)
-
-#### - Click **`vnc_lite.html`**
-![Codespace Build](images/derect.png)
-
-### 4. Navigate to the Sample Programs
-- Right-click anywhere on the desktop background
-- Select Open Terminal Here
-  
-![Codespace Build](images/linux.png)
-
-- In the terminal, go to the workspace and then to the `samples` folder:
-
-```bash
-cd /workspaces/vsd-riscv2
-cd samples
-ls -ltr
-```
-![Codespace Build](images/sample.png)
-
-### 5. Compile and Run Using Native GCC
-- Use the gcc compiler for C program
-![Codespace Build](images/gcc.png)
-
-### 6. Compile and Run Using RISC-V GCC and Spike
-Compile the same program for RISC-V and run it on the Spike ISA simulator:
-
-```bash
-riscv64-unknown-elf-gcc -o sum1ton.o sum1ton.c
-spike pk sum1ton.o
-```
-![Codespace Build](images/spike.png)
-
-### 6. Edit the C Program Using gedit (GUI Editor)
-
-To edit the program using a graphical editor:
-
-```bash
-gedit sum1ton.c &
-```
-![Codespace Build](images/GUI.png)
-
-#### Now, we can modify the code according to our requirements, such as changing the limit from 9 to 15.
 ---
-## Step 3: Clone and Run VSDFPGA Labs 
-- clone the FPGA labs repository inside the same Codespace:
 
-```bash
-git clone https://github.com/vsdip/vsdfpga_labs.git
-cd vsdfpga_labs
+## Step 1: SoC Understanding
+
+### RTL Files
+| File | Purpose | Modified? |
+|------|---------|-----------|
+| `riscv.v` | Main SoC — CPU, RAM, IO decoder, LED, UART | YES |
+| `emitter_uart.v` | UART serial transmitter | No |
+| `clockworks.v` | Clock divider + safe reset | No |
+| `femtopll.v` | PLL clock generator (iCE40) | No |
+| `gpio_out.v` | New GPIO IP module | Created |
+| `ice40_primitives.v` | Simulation stubs | Created |
+
+### Key Finding — Address Decoder
+```verilog
+wire isIO  = mem_addr[22];   // bit 22 = 1 → peripheral
+wire isRAM = !isIO;          // bit 22 = 0 → RAM
 ```
-- Follow the README instructions in vsdfpga_labs
-- Install the following tools before proceeding:
 
-###### General dependencies
-
-```
-sudo apt-get install git vim autoconf automake autotools-dev curl libmpc-dev \
-libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool \
-patchutils bc zlib1g-dev libexpat1-dev gtkwave picocom -y
+### CPU Write Pattern (existing LED example)
+```verilog
+always @(posedge clk) begin
+   if(isIO & mem_wstrb & mem_wordaddr[IO_LEDS_bit])
+      LEDS <= mem_wdata;
+end
 ```
 
-
-###### FPGA toolchain (Yosys/NextPNR/IceStorm)
+### Readback Mux Pattern
+```verilog
+assign mem_rdata = isRAM ? RAM_rdata : IO_rdata;
 ```
-sudo apt-get install yosys nextpnr-ice40 icestorm iverilog -y
-```
-###### RISC-V Toolchain (GCC 8.3.0)
 
-```
-cd ~
-mkdir -p riscv_toolchain && cd riscv_toolchain
-wget "https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz"
-tar -xvzf riscv64-unknown-elf-gcc-*.tar.gz
-echo 'export PATH=$HOME/riscv_toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14/bin:$PATH' >> ~/.bashrc
-source ~/.bashrc
-```
-### Building & Running
-
-###### Building the file
-
-```
-git clone https://github.com/vsdip/vsdfpga_labs.git
-cd vsdfpga_labs/basicRISCV/Firmware
-nano riscv_logo.c
-make riscv_logo.bram.hex
-```
-![Codespace Build](images/flash.png)
-
-Compiling and Running the file
-
-```
-riscv64-unknown-elf-gcc -o riscv_logo riscv_logo.c
-spike pk riscv_logo
-```
-![Codespace Build](images/main.png)
-
-## Step 4: Local Machine Preparation 
-Clone both repositories locally: <br>
-vsd-riscv2 <br>
-vsdfpga_labs
-
-```bash
-git clone https://github.com/vsdip/vsdfpga_labs.git
-cd vsdfpga_labs
-```
-![Codespace Build](images/desk.png)
-
-![Codespace Build](images/done.png)
 ---
-## Understanding Check
 
-### Q1. Where is the RISC-V program located in the vsd-riscv2 repository?
-The specific file is:
+## Step 2: GPIO IP — gpio_out.v
+
+```verilog
+module gpio_out (
+    input  wire        clk,        // system clock
+    input  wire        rst,        // active-high reset
+    input  wire        valid,      // isIO & mem_wordaddr[IO_GPIO_bit]
+    input  wire        we,         // write enable (mem_wstrb)
+    input  wire [31:0] wdata,      // data from CPU
+    output reg  [31:0] rdata,      // data back to CPU
+    output wire [31:0] gpio_out    // GPIO output signal
+);
+
+    reg [31:0] gpio_reg;
+
+    // Write logic
+    always @(posedge clk) begin
+        if (rst)
+            gpio_reg <= 32'h00000000;
+        else if (valid && we)
+            gpio_reg <= wdata;
+    end
+
+    // Readback logic
+    always @(*) begin
+        rdata = gpio_reg;
+    end
+
+    assign gpio_out = gpio_reg;
+
+endmodule
+```
+
+---
+
+## Step 3: SoC Integration — riscv.v
+
+### Change 1 — Add GPIO address constant
+```verilog
+localparam IO_GPIO_bit = 3;   // bit 3 → GPIO register (read/write)
+```
+
+### Change 2 — Instantiate GPIO module (after UART instance)
+```verilog
+wire [31:0] gpio_rdata;
+wire [31:0] gpio_pins;
+
+gpio_out GPIO(
+   .clk(clk),
+   .rst(!resetn),
+   .valid(isIO & mem_wordaddr[IO_GPIO_bit]),  // address-specific select
+   .we(mem_wstrb),
+   .wdata(mem_wdata),
+   .rdata(gpio_rdata),
+   .gpio_out(gpio_pins)
+);
+```
+
+### Change 3 — Update readback mux
+```verilog
+wire [31:0] IO_rdata =
+    mem_wordaddr[IO_UART_CNTL_bit] ? {22'b0, !uart_ready, 9'b0} :
+    mem_wordaddr[IO_GPIO_bit]      ? gpio_rdata                  :
+                                     32'b0;
+```
+
+> **Important fix:** `valid` must be `isIO & mem_wordaddr[IO_GPIO_bit]` — NOT just `isIO`. Using only `isIO` caused GPIO to fire on every IO access including UART writes, overwriting the register with wrong data.
+
+---
+
+## Step 4: Firmware & Simulation
+
+### gpio_test.c
+```c
+#include <stdio.h>
+#include <stdint.h>
+
+#define GPIO_ADDR 0x400008
+volatile uint32_t *gpio = (volatile uint32_t *)GPIO_ADDR;
+
+void main() {
+    *gpio = 0xDEADBEEF;
+    printf("GPIO test 1: %x\n", (unsigned int)*gpio);
+
+    *gpio = 0x000000FF;
+    printf("GPIO test 2: %x\n", (unsigned int)*gpio);
+
+    *gpio = 0x12345678;
+    printf("GPIO test 3: %x\n", (unsigned int)*gpio);
+
+    printf("ALL TESTS DONE\n");
+}
+```
+
+### Compile
 ```bash
-workspaces/vsd-riscv2/samples/sum1ton.c
+cd Firmware
+make gpio_test.bram.hex
+```
+Output: Code size: 672 words (43% of 1536 words RAM) 
+
+### Simulate
+```bash
+cd RTL
+iverilog -o sim_gpio -DBENCH riscv.v gpio_out.v ice40_primitives.v
+vvp sim_gpio
 ```
 
-### Q2. How is the program compiled and loaded into memory?
+### Simulation Results
+| Test | Value Written | Readback | Result |
+|------|--------------|----------|--------|
+| Test 1 | `0xDEADBEEF` | `deadbeef` |  PASS |
+| Test 2 | `0x000000FF` | `ff` |  PASS |
+| Test 3 | `0x12345678` | `12345678` |  PASS |
 
-The program is compiled using the RISC-V toolchain command:
+---
 
-```
-riscv64-unknown-elf-gcc -o sum1ton.o sum1ton.c
-```
-This makes a RISC-V executable (ELF format) file.
-Then it is loaded into memory using spike with this command:
+##  Understanding Questions
 
-```
-spike pk sum1ton.o
-```
+**Q: What is a memory-mapped peripheral?**  
+A peripheral that appears to the CPU as a memory address. The CPU reads and writes it using normal load/store instructions — no special instructions needed.
 
-This makes pk (proxy kernel) load our ELF file and set it up into memory. Then it executes it
+**Q: How does the CPU select GPIO vs UART?**  
+The address decoder checks `mem_addr[22]` for IO space, then `mem_wordaddr[3]` for GPIO vs `mem_wordaddr[1]` for UART. Only one bit is high at a time.
 
-### Q3. How does the RISC-V core access memory and memory-mapped IO?
+**Q: What address does GPIO use?**  
+Byte address `0x400008`. Bit 22 = 1 (IO space). Word address bit 3 = 1 (GPIO selected).
 
-The RISC-V core accesses both memory and memory-mapped IO using load and store instructions over a common system bus. Specific address ranges are assigned to hardware devices, so when the core reads or writes to those addresses, it communicates with peripherals as if they were normal memory locations.
+**Q: Why was `valid = isIO` wrong?**  
+`isIO` is true for ALL IO accesses including UART. The GPIO captured UART data and overwrote the register. Fix: `isIO & mem_wordaddr[IO_GPIO_bit]`.
 
-### Q4. Where would a new FPGA IP block logically integrate in this system?
+**Q: What did simulation prove?**  
+The CPU can write any 32-bit value to the GPIO register and read it back correctly. All 3 test patterns matched exactly.
 
-A new FPGA IP block would connect to the system bus and be mapped to a unique address range within the memory map. This allows the RISC-V core to interact with the IP block through standard memory-mapped read and write operations, just like other peripherals.
+---
+
+##  Tools Used
+
+| Tool | Purpose |
+|------|---------|
+| GitHub Codespaces | Cloud development environment |
+| OSS CAD Suite | Pre-installed RISC-V + FPGA toolchain |
+| riscv64-unknown-elf-gcc | RISC-V C compiler |
+| Icarus Verilog (iverilog/vvp) | Verilog simulation |
+| vsdfpga_labs | Base SoC and firmware |
