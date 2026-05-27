@@ -171,7 +171,6 @@ cd RTL
 iverilog -o sim_gpio -DBENCH riscv.v gpio_out.v ice40_primitives.v
 vvp sim_gpio
 ```
-![Codespace Build](images/Result2.png)
 
 ### Simulation Results
 | Test | Value Written | Readback | Result |
@@ -180,6 +179,7 @@ vvp sim_gpio
 | Test 2 | `0x000000FF` | `ff` |  PASS |
 | Test 3 | `0x12345678` | `12345678` |  PASS |
 
+![Codespace Build](images/Result2.png)
 ---
 
 ##  Understanding Questions
