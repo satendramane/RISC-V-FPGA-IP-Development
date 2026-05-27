@@ -266,3 +266,32 @@ The CPU can write any 32-bit value to the GPIO register and read it back correct
 | riscv64-unknown-elf-gcc | RISC-V C compiler |
 | Icarus Verilog (iverilog/vvp) | Verilog simulation |
 | vsdfpga_labs | Base SoC and firmware |
+
+### Address Used
+- GPIO base address: 0x400020
+- IO space selected by: mem_addr[22] = 1
+- GPIO selected by: mem_wordaddr[3] = 1
+- Inside GPIO: single register at offset 0x00
+
+### How CPU Accesses the IP
+1. CPU executes a STORE instruction to address 0x400020
+2. mem_addr[22] = 1 → isIO = 1 (IO space selected)
+3. mem_wordaddr[3] = 1 → GPIO selected
+4. gpio_reg stores mem_wdata (CPU write data)
+5. CPU executes a LOAD instruction to same address
+6. IO_rdata mux returns gpio_rdata back to CPU
+7. CPU receives the readback value
+
+### What Was Validated in Simulation
+- Wrote 0xDEADBEEF → Readback: -559038737  (corect!)
+- Wrote 0x000000FF → Readback: 255         
+- Wrote 0x12345678 → Readback: 305419896   
+- All 3 values written and read back correctly
+- Simulation ran with zero errors
+- UART printed results confirming end-to-end flow
+
+### Files Submitted
+- gpio_out.v     → GPIO IP RTL module
+- gpio_test.c    → C validation program
+- riscv.v        → Modified SoC with GPIO integrated
+- Screenshots    → Step 3 integration + Step 4 simulation
