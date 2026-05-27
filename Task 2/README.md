@@ -233,7 +233,6 @@ gtkwave /workspaces/vsd-riscv2/vsdfpga_labs/basicRISCV/RTL/gpio_sim.vcd /workspa
 - In SST panel: expand SOC → GPIO
 - Select signals: gpio_reg[31:0], gpio_out[31:0], valid, we, wdata[31:0] Click Append
 - Also add from SOC level: clk, mem_addr[31:0]
-- Set zoom: From 4000000 → To 65000000
 
 ![Codespace Build](images/Result4.png)
 
