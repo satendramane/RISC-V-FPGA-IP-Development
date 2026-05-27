@@ -191,6 +191,50 @@ vvp sim_gpio
 
 ![Codespace Build](images/Result2.png)
 
+### Create GTKWave Save File
+```bash
+cat > /workspaces/vsd-riscv2/vsdfpga_labs/basicRISCV/RTL/gpio_waves.gtkw << 'EOF'
+[dumpfile] "/workspaces/vsd-riscv2/vsdfpga_labs/basicRISCV/RTL/gpio_sim.vcd"
+[timestart] 4000000
+[size] 1400 500
+[pos] 0 0
+*-24.000000 5509350 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] bench.
+[signals_width] 200
+[sst_expanded] 1
+[signal_list_width] 200
+@28
+bench.clk
+@28
+bench.resetn
+@22
+bench.mem_addr[31:0]
+@22
+bench.mem_wdata[31:0]
+@22
+bench.mem_wstrb
+@28
+bench.isIO
+@22
+bench.GPIO.gpio_reg[31:0]
+@22
+bench.GPIO.gpio_out[31:0]
+[pattern_trace] 1
+[pattern_trace] 0
+EOF
+```
+### Open GTKWave (run in noVNC terminal)
+```bash
+gtkwave /workspaces/vsd-riscv2/vsdfpga_labs/basicRISCV/RTL/gpio_sim.vcd /workspaces/vsd-riscv2/vsdfpga_labs/basicRISCV/RTL/gpio_waves.gtkw &
+```
+
+### Manually add signals in GTKWave:
+
+- In SST panel: expand SOC → GPIO
+- Select signals: gpio_reg[31:0], gpio_out[31:0], valid, we, wdata[31:0] Click Append
+- Also add from SOC level: clk, mem_addr[31:0]
+- Set zoom: From 4000000 → To 65000000
+
 ![Codespace Build](images/Result4.png)
 
 ---
