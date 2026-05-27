@@ -190,6 +190,9 @@ vvp sim_gpio
 | Test 3 | `0x12345678` | `12345678` |  PASS |
 
 ![Codespace Build](images/Result2.png)
+
+![Codespace Build](images/Result4.png)
+
 ---
 
 ##  Understanding Questions
