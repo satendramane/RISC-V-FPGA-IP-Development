@@ -136,6 +136,8 @@ wire [31:0] IO_rdata =
 
 ## Step 4: Firmware & Simulation
 
+![Codespace Build](images/Result1.png)
+
 ### gpio_test.c
 ```c
 #include <stdio.h>
