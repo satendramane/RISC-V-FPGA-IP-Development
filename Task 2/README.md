@@ -132,7 +132,7 @@ wire [31:0] IO_rdata =
 
 > **Important fix:** `valid` must be `isIO & mem_wordaddr[IO_GPIO_bit]` — NOT just `isIO`. Using only `isIO` caused GPIO to fire on every IO access including UART writes, overwriting the register with wrong data.
 
-![Codespace Build](images/Result1.png)
+![Codespace Build](images/Result3.png)
 
 ---
 
