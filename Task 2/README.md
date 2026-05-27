@@ -290,8 +290,3 @@ The CPU can write any 32-bit value to the GPIO register and read it back correct
 - Simulation ran with zero errors
 - UART printed results confirming end-to-end flow
 
-### Files Submitted
-- gpio_out.v     → GPIO IP RTL module
-- gpio_test.c    → C validation program
-- riscv.v        → Modified SoC with GPIO integrated
-- Screenshots    → Step 3 integration + Step 4 simulation
