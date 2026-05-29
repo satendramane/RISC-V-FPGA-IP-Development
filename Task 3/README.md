@@ -1,24 +1,5 @@
 # Task-3: Design a Multi-Register GPIO IP with Software Control
 
-**Internship:** VSDSquadron FPGA Mini  
-**Task Duration:** 4 days | Mandatory  
-**Hardware Validation:** Optional  
-**Tool:** GitHub Codespace + iverilog + RISC-V GCC toolchain
-
----
-
-## Table of Contents
-- [Objective](#objective)
-- [Register Map](#register-map)
-- [Step 1 — Study and Plan](#step-1--study-and-plan)
-- [Step 2 — Implement Multi-Register RTL](#step-2--implement-multi-register-rtl)
-- [Step 3 — Integrate into the SoC](#step-3--integrate-into-the-soc)
-- [Step 4 — Software Validation](#step-4--software-validation)
-- [Results Summary](#results-summary)
-- [Key Learnings](#key-learnings)
-
----
-
 ## Objective
 
 Extend the simple GPIO IP from Task-2 into a realistic, multi-register, software-controlled IP, similar to what exists in production SoCs.
