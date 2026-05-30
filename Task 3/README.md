@@ -296,7 +296,7 @@ ls -l test_gpio_v2
 -rwxr-xr-x 1 root root 67285 May 27 12:27 test_gpio_v2
 ```
 
-> 📸 **Screenshot here** — zero errors, binary created
+![Codespace Build](Images/out3.png)
 
 ---
 
@@ -383,7 +383,7 @@ DIR=0x0F DATA=0xFF READ: 15
 riscv.v:286: $finish called at 175725942 (1s)
 ```
 
-> 📸 **Screenshot here** — shows correct READ values 170 and 15
+![Codespace Build](Images/out4.png)
 
 ---
 
