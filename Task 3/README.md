@@ -276,7 +276,7 @@ gpio_out_v2 GPIO(
                                      32'b0;
 ```
 
-![Codespace Build](images/out2.png)
+![Codespace Build](Images/out2.png)
 
 ### Compile to Verify Integration
 
