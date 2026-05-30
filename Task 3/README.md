@@ -227,7 +227,7 @@ ls -l /workspaces/vsd-riscv2/vsdfpga_labs/basicRISCV/RTL/gpio_out*.v
 -rw-rw-rw- 1 root root 1482 May 27 12:10 gpio_out_v2.v
 ```
 
-![Codespace Build](images/out1.png)
+![Codespace Build](Task 3/Images/out1.png)
 ![Codespace Build](images/out2.png)
 
 
