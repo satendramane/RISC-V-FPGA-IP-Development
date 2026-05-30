@@ -228,6 +228,8 @@ ls -l /workspaces/vsd-riscv2/vsdfpga_labs/basicRISCV/RTL/gpio_out*.v
 ```
 
 ![Codespace Build](images/out1.png)
+![Codespace Build](images/out2.png)
+
 
 ---
 
