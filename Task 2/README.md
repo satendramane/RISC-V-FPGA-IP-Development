@@ -238,7 +238,7 @@ gtkwave /workspaces/vsd-riscv2/vsdfpga_labs/basicRISCV/RTL/gpio_sim.vcd /workspa
 
 ## Step 5: Hardware validation
 
-![Codespace Build](images/board.png)
+![Codespace Build](images/board.jpeg)
 
 ---
 
