@@ -438,10 +438,3 @@ Direction control working: upper 4 pins ignored
 | `ice40_primitives.v` | Simulation stubs for iCE40 hardware primitives |
 
 ---
-
-## References
-
-- [VSDSquadron FPGA Repo](https://github.com/vsdip/vsd-riscv2)
-- [VSDFPGA Labs](https://github.com/vsdip/vsdfpga_labs)
-- [Designing Memory-mapped Peripheral IPs in RTL](https://chipmunklogic.com/digital-logic-design/designing-memory-mapped-peripheral-ips-in-rtl/)
-
