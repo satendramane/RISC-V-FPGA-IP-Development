@@ -228,8 +228,6 @@ ls -l /workspaces/vsd-riscv2/vsdfpga_labs/basicRISCV/RTL/gpio_out*.v
 ```
 
 ![Codespace Build](Images/out1.png)
-![Codespace Build](images/out2.png)
-
 
 ---
 
@@ -278,7 +276,7 @@ gpio_out_v2 GPIO(
                                      32'b0;
 ```
 
-> 📸 **Screenshot here** — shows `gpio_out_v2` and `.addr(mem_addr)` in the instantiation
+![Codespace Build](images/out2.png)
 
 ### Compile to Verify Integration
 
