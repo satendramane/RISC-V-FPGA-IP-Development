@@ -37,10 +37,6 @@ TIMER_STATUS = 0x1;      // Clear flag
 ## Hardware Validation
 
 Tested on **VSDSquadron FM** (Lattice iCE40UP5K):
-- ✅ Synthesis: 0 problems, 1405 LUTs
-- ✅ Max frequency: 17.32 MHz (target: 12 MHz)
-- ✅ Board demo: LED toggles on every timer timeout
-
-## Author
-VSD RISC-V Workshop — Task 4 & Task 5
-Assigned IP: Timer
+-  Synthesis: 0 problems, 1405 LUTs
+-  Max frequency: 17.32 MHz (target: 12 MHz)
+-  Board demo: LED toggles on every timer timeout
