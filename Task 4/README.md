@@ -4,7 +4,7 @@
 > **Track:** Core Contributors  
 > **IP Assigned:** Timer IP (Option 1)  
 > **Board:** VSDSquadron FPGA Mini (Lattice iCE40 UP5K)  
-> **Status:** ✅ Complete — Simulation + Hardware Validated
+> **Status:**  Complete — Simulation + Hardware Validated
 
 ---
 
@@ -168,15 +168,15 @@ vvp test_timer
 ```
 
 ### Simulation Output
-=== Test 1: One-shot mode ===
-Timer started. Load=10
-Waiting for TIMEOUT...
-TIMEOUT! VALUE=0
-TIMEOUT cleared. STATUS=0
-=== Test 2: Periodic mode (3 timeouts) ===
-Timeout #1! VALUE=36
-Timeout #2! VALUE=39
-Timeout #3! VALUE=42
+=== Test 1: One-shot mode === <br>
+Timer started. Load=10 <br>
+Waiting for TIMEOUT... <br>
+TIMEOUT! VALUE=0 <br>
+TIMEOUT cleared. STATUS=0 <br>
+=== Test 2: Periodic mode (3 timeouts) === <br>
+Timeout #1! VALUE=36 <br>
+Timeout #2! VALUE=39 <br>    
+Timeout #3! VALUE=42 <br>
 ALL TESTS DONE
 
 ### Simulation Screenshot
@@ -187,11 +187,11 @@ ALL TESTS DONE
 
 | Test | Result | Proof |
 |------|--------|-------|
-| One-shot TIMEOUT | VALUE=0 ✅ | Timer counted to 0 and set flag |
-| STATUS cleared | STATUS=0 ✅ | Write-1-to-clear works |
-| Periodic timeout #1 | VALUE=36 ✅ | Auto-reload working |
-| Periodic timeout #2 | VALUE=39 ✅ | Continuous counting confirmed |
-| Periodic timeout #3 | VALUE=42 ✅ | 3 timeouts — periodic mode proven |
+| One-shot TIMEOUT | VALUE=0  | Timer counted to 0 and set flag |
+| STATUS cleared | STATUS=0  | Write-1-to-clear works |
+| Periodic timeout #1 | VALUE=36  | Auto-reload working |
+| Periodic timeout #2 | VALUE=39  | Continuous counting confirmed |
+| Periodic timeout #3 | VALUE=42  | 3 timeouts — periodic mode proven |
 
 ---
 
