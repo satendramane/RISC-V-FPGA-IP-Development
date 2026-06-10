@@ -240,7 +240,7 @@ picocom -b 9600 /dev/ttyUSB1 --imap lfcrlf,crcrlf --omap delbs,crlf
 
 ### UART Output Screenshot
 
-![UART Output](images/3.png)
+![UART Output](images/3.jpeg)
 
 ### Board Photo
 
