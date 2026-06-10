@@ -181,7 +181,7 @@ ALL TESTS DONE
 
 ### Simulation Screenshot
 
-![Simulation Output](simulation_output.png)
+![Codespace Build](Images/1.png)
 
 ### Results
 
