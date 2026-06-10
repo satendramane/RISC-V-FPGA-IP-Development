@@ -183,6 +183,10 @@ ALL TESTS DONE
 
 ![Codespace Build](images/1.png)
 
+### GTKWave Waveform
+
+![GTKWave Waveform](images/2.png)
+
 ### Results
 
 | Test | Result | Proof |
