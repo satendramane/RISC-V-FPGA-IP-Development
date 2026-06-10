@@ -250,10 +250,10 @@ picocom -b 9600 /dev/ttyUSB1 --imap lfcrlf,crcrlf --omap delbs,crlf
 
 | Time | LED State | Event |
 |------|-----------|-------|
-| 0s   | ON  🔴    | Timer started |
-| 10s  | OFF ⚫    | TIMEOUT #1 — Timer IP triggered |
-| 20s  | ON  🔴    | TIMEOUT #2 — Periodic reload |
-| 30s  | OFF ⚫    | TIMEOUT #3 — Repeats forever |
+| 0s   | ON      | Timer started |
+| 10s  | OFF     | TIMEOUT #1 — Timer IP triggered |
+| 20s  | ON      | TIMEOUT #2 — Periodic reload |
+| 30s  | OFF     | TIMEOUT #3 — Repeats forever |
 
 ### Timing Calculation
 Clock              = 12 MHz
@@ -289,4 +289,3 @@ ip/timer_ip/
 
 ---
 
-*VSDSquadron RISC-V FPGA Program — Task-4 Timer IP Complete* ✅
