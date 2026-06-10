@@ -263,6 +263,8 @@ LOAD for 10 sec    = 46,875 × 10 = 468,750
 ---
 
 ## Repository Structure
+
+```
 ip/timer_ip/
 ├── rtl/
 │   └── timer_ip.v          ← Timer IP Verilog module
@@ -270,8 +272,7 @@ ip/timer_ip/
 │   ├── timer_test.c        ← C simulation test
 │   └── timer_blink.c       ← C hardware LED blink
 └── README.md
-
----
+```
 
 ## Tools Used
 
