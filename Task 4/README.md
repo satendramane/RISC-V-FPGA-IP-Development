@@ -240,11 +240,11 @@ picocom -b 9600 /dev/ttyUSB1 --imap lfcrlf,crcrlf --omap delbs,crlf
 
 ### UART Output Screenshot
 
-![UART Output](uart_output.png)
+![UART Output](images/3.png)
 
 ### Board Photo
 
-![Board Hardware Demo](board_photo.png)
+![Board Hardware Demo](images/4.png)
 
 ### LED Behavior
 
