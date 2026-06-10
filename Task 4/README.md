@@ -273,6 +273,7 @@ ip/timer_ip/
 │   └── timer_blink.c       ← C hardware LED blink
 └── README.md
 ```
+---
 
 ## Tools Used
 
